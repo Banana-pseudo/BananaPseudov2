@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Banana Multipurpose Materials - Sustainable Fiber Products</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    
+    <style>
+        :root {
+            --color-primary: #388E3C; 
+            --color-secondary: #81C784; 
+            --color-accent: #FFB300; 
+            --color-text-dark: #212121;
+            --color-text-light: #fff;
+            --color-background: #F8F8F8;
+            --color-section-bg: #EFEFEF; 
+            --font-main: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-text-dark);
+            background-color: var(--color-background);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: var(--color-primary);
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 5px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            height: 3px;
+            width: 80px;
+            background-color: var(--color-secondary);
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 80px 0;
+            min-height: 50vh;
+        }
+
+       
+        .separator {
+            width: 100%;
+            height: 30px;
+            background: linear-gradient(to right, var(--color-secondary), var(--color-primary));
+            margin: 0 auto;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+       
+        section:not(#home) {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+       
+        header {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 30px;
+        }
+        nav ul a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 0;
+            transition: color 0.3s, border-bottom 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        nav ul a:hover {
+            color: var(--color-accent);
+            border-bottom: 2px solid var(--color-accent);
+        }
+
+        
+        #home {
+            background: linear-gradient(rgba(248, 248, 248, 0.9), rgba(248, 248, 248, 0.9)), url('https://hips.hearstapps.com/hmg-prod/images/17d19793-4d2d-43f0-a0a7-0755eeeb1442.jpeg?resize=980:*') center/cover;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .hero-content {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: var(--shadow-card);
+            max-width: 900px;
+        }
+        #home h1 {
+            font-size: 4em;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+        #home h2 {
+            font-size: 1.8em;
+            color: var(--color-text-dark);
+            margin-bottom: 30px;
+            display: block;
+            border-bottom: none;
+        }
+        .why-choose-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        .why-choose-list li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .why-choose-list li i {
+            color: var(--color-secondary);
+            font-size: 1.2em;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--color-accent);
+            color: var(--color-text-dark);
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background-color: #FFC107;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .fb-button {
+            background-color: #1877F2;
+            color: var(--color-text-light);
+            margin-top: 30px;
+        }
+        
+        .fb-button:hover {
+            background-color: #166FE5;
+            color: var(--color-text-light);
+        }
+        
+        .fb-button i {
+            font-size: 1.3em;
+        }
+
+
+        #about {
+            background-color: var(--color-section-bg);
+            text-align: center;
+        }
+        .mission-vision {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .card {
+            flex: 1;
+            padding: 30px;
+            background-color: var(--color-text-light);
+            border-radius: 12px;
+            box-shadow: var(--shadow-card);
+            text-align: left;
+            transition: transform 0.3s;
+            max-width: 500px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        .card h3 {
+            color: var(--color-primary);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card h3 i {
+            color: var(--color-accent);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .product-item {
+            background-color: var(--color-text-light);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            text-align: center;
+            overflow: hidden; 
+        }
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        .product-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .product-item img:hover {
+            opacity: 0.9;
+        }
+        .product-item h4 {
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        #how-made {
+            background-color: var(--color-section-bg);
+            text-align: center;
+        }
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+        .step {
+            background-color: var(--color-text-light);
+            padding: 20px;
+            border-left: 5px solid var(--color-primary);
+            border-radius: 5px;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .step h4 {
+            font-size: 1.4em;
+            color: var(--color-secondary);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .step h4 i {
+            color: var(--color-primary);
+        }
+
+        #shop {
+            text-align: center;
+        }
+        .price-list table {
+            width: 80%;
+            margin: 40px auto;
+            border-collapse: collapse;
+            box-shadow: var(--shadow-card);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .price-list th, .price-list td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .price-list th {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            text-align: center;
+        }
+        
+        .payment-info {
+            background-color: #FFFDE7;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-card);
+            max-width: 600px;
+            margin: 20px auto;
+            border: 1px dashed var(--color-accent);
+        }
+        .payment-info h3 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+        
+        #testimonials {
+            background-color: var(--color-section-bg);
+            text-align: center;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background-color: var(--color-text-light);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-card);
+            text-align: center;
+            border-left: 5px solid var(--color-accent);
+        }
+
+        .testimonial-card img {
+            width: 100%; 
+            height: 250px; 
+            object-fit: cover;
+            border-radius: 8px; 
+            margin-bottom: 15px;
+            border: 4px solid var(--color-secondary);
+            cursor: pointer; 
+            transition: border-color 0.2s;
+        }
+
+        .testimonial-card img:hover {
+            border-color: var(--color-accent);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        .testimonial-card strong {
+            display: block;
+            margin-top: 10px;
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        #contact {
+            text-align: center;
+        }
+        
+        .contact-details {
+            background-color: var(--color-text-light);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-card);
+            max-width: 600px;
+            margin: 40px auto 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+       
+        .contact-link {
+            text-decoration: none;
+            color: inherit; 
+            display: block;
+            width: 100%;
+            margin-bottom: 5px; 
+            transition: background-color 0.2s;
+            border-radius: 6px;
+        }
+
+        .contact-link:hover {
+            background-color: var(--color-section-bg);
+        }
+        
+        .contact-details p {
+            font-size: 1.1em;
+            margin: 10px 0; 
+            padding: 5px 10px; 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+        }
+        .contact-details p i {
+            color: var(--color-primary);
+            font-size: 1.3em;
+        }
+
+     
+        footer {
+            background-color: var(--color-text-dark);
+            color: var(--color-text-light);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9em;
+        }
+
+       
+        .lightbox {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.9); 
+            backdrop-filter: blur(5px);
+        }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh; 
+            object-fit: contain; 
+        }
+
+       
+        #lightbox-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+       
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .lightbox-close:hover,
+        .lightbox-close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+      
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                margin: 5px 10px;
+            }
+            .why-choose-list {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .mission-vision {
+                flex-direction: column;
+            }
+            .price-list table {
+                width: 100%;
+            }
+            #home h1 {
+                font-size: 3em;
+            }
+          
+            .lightbox-content {
+                width: 100%;
+            }
+            .lightbox-close {
+                top: 5px;
+                right: 20px;
+                font-size: 30px;
+            }
+         
+            .contact-details {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Eco Banano</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#how-made">Process</a></li>
+                <li><a href="#shop">Order</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="hero-content">
+            <h1>Eco Banano Multipurpose Materials</h1>
+            <h2>Turning banana waste into useful and eco-friendly products.</h2>
+            <p>We utilize the discarded **banana pseudo-stems** to transform agricultural waste into durable, sustainable, and practical materials.</p>
+            
+            <ul class="why-choose-list">
+                <li><i class="fas fa-leaf"></i> Eco-friendly</li>
+                <li><i class="fas fa-hand-paper"></i> Handmade</li>
+                <li><i class="fas fa-user-check"></i> Quality Assured</li>
+                <li><i class="fas fa-seedling"></i> Supports Local Farmers</li>
+            </ul>
+
+            <a href="#shop" class="cta-button">
+                <i class="fas fa-shopping-cart"></i> View Products & Order
+            </a>
+        </div>
+    </section>
+
+  
+    <div class="separator"></div>
+
+    <section id="about" class="container">
+        <h2>About Eco Banano</h2>
+        <p style="font-size: 1.1em; max-width: 800px; margin: 0 auto 40px;">Eco Banano is a student-led business dedicated to sustainability. We collect banana pseudo-stems and convert them into reusable and multipurpose materials. Instead of letting agricultural waste go to landfill or be burned, we turn it into something useful, championing the circular economy.</p>
+        
+        <div class="mission-vision">
+            <div class="card">
+                <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+                <p>Eco Banano aims to secure a significant share of the banana-based product market by prioritizing **sustainable and ethical sourcing**. This is followed by consistent production and distribution, establishing reliable supply chains and community partnerships.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-binoculars"></i> Our Vision</h3>
+                <p>The long-term vision focuses on **sustained growth, market expansion**, and building a strong brand reputation for high-quality, sustainable, and innovative banana-based products that inspire others to reduce waste and choose eco-friendly alternatives.</p>
+            </div>
+        </div>
+    </section>
+
+  
+    <div class="separator"></div>
+    
+    <section id="products" class="container">
+        <h2>Our Sustainable Products</h2>
+        
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="https://i.imgur.com/rMEz3Gw.jpeg" alt="Banana Fiber Sheets">
+                <h4>1. Banana Fiber Sheets</h4>
+                <p>Durable and eco-friendly paper. Perfect for crafts, unique packaging, and creative projects.</p>
+            </div>
+            <div class="product-item">
+                <img src="https://i.imgur.com/Iq2FWiO.jpeg" alt="Paper Bag">
+                <h4>2. Sustainable Paper Bags</h4>
+                <p>Sturdy and biodegradable bags made from processed banana fibers, a green alternative to plastic.</p>
+            </div>
+            <div class="product-item">
+                <img src="https://i.imgur.com/TjQM1xD.jpeg" alt="Wrapper Bouquet">
+                <h4>3. Bouquet Wrappers</h4>
+                <p>Natural banana fiber wrappers ideal for a rustic and elegant look for flower arrangements and gifts.</p>
+            </div>
+            <div class="product-item">
+                <img src="https://i.imgur.com/FSCCiku.jpeg" alt="Banana Fiber Rope">
+                <h4>4. Banana Fiber Rope</h4>
+                <p>A strong, flexible, and fully natural rope ideal for gardening, macrame, and decorative purposes.</p>
+            </div>
+            <div class="product-item">
+                <img src="https://i.imgur.com/uZ99MMX.jpeg" alt="Gift Wrapping Sheets">
+                <h4>5. Gift Wrapping Sheets</h4>
+                <p>Give gifts sustainably with our unique, textured wrapping sheets.</p>
+            </div>
+        </div>
+    </section>
+
+  
+    <div class="separator"></div>
+
+    <section id="how-made" class="container">
+        <h2>Our Eco-Friendly Process</h2>
+        <p style="text-align: center; margin-bottom: 30px;">See the steps we take to transform agricultural waste into valuable, multipurpose materials.</p>
+
+        <div class="steps-container">
+            <div class="step">
+                <h4><i class="fas fa-hand-holding-box"></i> 1. Collection & Sourcing</h4>
+                <p>We gather discarded banana pseudo-stems from local farmers, ensuring we use what would otherwise be waste.</p>
+            </div>
+            <div class="step">
+                <h4><i class="fas fa-cut"></i> 2. Fiber Extraction</h4>
+                <p>The coarse, natural fibers are carefully separated from the stem using a manual or semi-mechanical process.</p>
+            </div>
+            <div class="step">
+                <h4><i class="fas fa-sun"></i> 3. Natural Drying</h4>
+                <p>The extracted fibers are naturally air and sun-dried to remove all moisture and maintain their natural strength.</p>
+            </div>
+            <div class="step">
+                <h4><i class="fas fa-blender"></i> 4. Pulping & Processing</h4>
+                <p>Fibers are pulped, cleaned, and treated using eco-friendly methods to prepare them for material formation.</p>
+            </div>
+            <div class="step">
+                <h4><i class="fas fa-drafting-compass"></i> 5. Forming & Shaping</h4>
+                <p>The prepared pulp is pressed and formed into sheets, ropes, or bags, depending on the final product.</p>
+            </div>
+            <div class="step">
+                <h4><i class="fas fa-check-circle"></i> 6. Quality Finishing</h4>
+                <p>The final products are inspected, trimmed, and packaged, ensuring high quality and durability for the customer.</p>
+            </div>
+        </div>
+    </section>
+    
+  
+    <div class="separator"></div>
+
+    <section id="shop" class="container">
+        <h2>Ready to Order?</h2>
+        
+        <div class="payment-info card">
+            <h3>How to Purchase:</h3>
+            <p><strong>To Order:</strong> Click the Facebook Messenger button below to place your order or send an inquiry!</p>
+            <p><strong>Payment Methods:</strong> GCash, Cash-on-Delivery, Meet-up (Local Only)</p>
+            <p><strong>Delivery:</strong> Available for shipping (fees apply) or local meet-up/pick-up.</p>
+        </div>
+        
+        <a 
+            href="https://www.facebook.com/profile.php?id=61566250813107" 
+            target="_blank" 
+            class="cta-button fb-button"
+            rel="noopener noreferrer"
+        >
+            <i class="fab fa-facebook-messenger"></i> Message Us to Order
+        </a>
+
+        <h3 style="margin-top: 60px;">Price List</h3>
+        <div class="price-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Banana Fiber Sheets</td>
+                        <td>₱15 per sheet</td>
+                    </tr>
+                    <tr>
+                        <td>Paper Bags</td>
+                        <td>₱15 (Small), ₱20 (Medium), ₱25 (Large) per piece</td>
+                    </tr>
+                    <tr>
+                        <td>Bouquet Wrapper</td>
+                        <td>₱15 per sheet</td>
+                    </tr>
+                    <tr>
+                        <td>Banana Fiber Rope</td>
+                        <td>₱15 per meter</td>
+                    </tr>
+                    <tr>
+                        <td>Gift Wrapping Sheets</td>
+                        <td>₱15 per sheet</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+   
+    <div class="separator"></div>
+
+    <section id="testimonials" class="container">
+        <h2>What Our Customers Say 💚</h2>
+
+        <div class="testimonial-grid">
+            
+            <div class="testimonial-card">
+                <img src="https://i.imgur.com/9zIZrYx.jpeg" alt="Customer Photo 1">
+                <p>"Amazing quality and so great to know I'm supporting a sustainable cause. The paper bags are surprisingly strong and look fantastic!"</p>
+                <strong>— Maria L. (Local Entrepreneur)</strong>
+            </div>
+
+            <div class="testimonial-card">
+                <img src="https://i.imgur.com/pRfEfN6.jpeg" alt="Customer Photo 2">
+                <p>"The banana fiber sheets are perfect for my art projects. A fantastic, natural, and truly eco-friendly alternative to normal craft paper."</p>
+                <strong>— Jason K. (Art Hobbyist)</strong>
+            </div>
+
+            <div class="testimonial-card">
+                <img src="https://i.imgur.com/koozWxA.jpeg" alt="Customer Photo 3">
+                <p>"I used the bouquet wrapper for a special gift—it looked so rustic and elegant! Highly recommend Eco Banano for sustainable gifting."</p>
+                <strong>— Sarah G. (Event Planner)</strong>
+            </div>
+
+            <div class="testimonial-card">
+                <img src="https://i.imgur.com/S6LbCiY.jpeg" alt="Customer Photo 4">
+                <p>"Fast delivery and excellent customer service. Proud to support local farmers and this incredible student initiative. Keep up the great work!"</p>
+                <strong>— Ben C. (Eco-Conscious Buyer)</strong>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section id="contact" class="container">
+        <h2>Get In Touch</h2>
+        <p style="text-align: center; margin-bottom: 20px; font-style: italic;">We're happy to answer any questions about our process, products, or sourcing.</p>
+        <div class="contact-details">
+            
+            <a 
+                href="https://maps.google.com/?q=Zone+2,+Barangay+Natatas,+Tanauan+City" 
+                target="_blank" 
+                class="contact-link"
+                title="View Address on Map"
+            >
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <strong>Address:</strong> Zone 2, Barangay Natatas, Tanauan City
+                </p>
+            </a>
+            
+            
+            <a 
+                href="mailto:pseudomultipurposematerials@gmail.co" 
+                class="contact-link"
+                title="Send us an Email"
+            >
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    <strong>Email:</strong> pseudomultipurposematerials@gmail.com
+                </p>
+            </a>
+            
+            <a 
+                href="tel:+639480103467" 
+                class="contact-link"
+                title="Call us now"
+            >
+                <p>
+                    <i class="fas fa-phone"></i>
+                    <strong>Phone:</strong> 0948 010 3467
+                </p>
+            </a>
+            
+            <p style="margin-top: 30px; font-size: 1.1em; font-weight: 600;">Let’s work together for a sustainable future!</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            &copy; 2025 Eco Banano Multipurpose Materials. All Rights Reserved. | Made with <i class="fas fa-leaf"></i> Banana Fiber
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+        <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" src="">
+        <div id="lightbox-caption"></div>
+    </div>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+       
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.classList.contains('contact-link') || this.classList.contains('cta-button')) {
+                    return;
+                }
+                
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                
+                if (target) {
+                    gsap.to(window, {
+                        duration: 1, 
+                      
+                        scrollTo: { y: target, offsetY: 80 }, 
+                        ease: "power2.inOut"
+                    });
+                }
+            });
+        });
+
+      
+        function revealSection(sectionId) {
+            gsap.fromTo(sectionId, 
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.2,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: sectionId,
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    }
+                }
+            );
+        }
+
+       
+        revealSection("#about");
+        revealSection("#products");
+        revealSection("#how-made");
+        revealSection("#shop");
+        revealSection("#testimonials");
+        revealSection("#contact");
+
+      
+        gsap.from(".step", {
+            y: 30,
+            opacity: 0,
+            stagger: 0.2,
+            duration: 0.8,
+            ease: "power1.out",
+            scrollTrigger: {
+                trigger: "#how-made",
+                start: "top 75%",
+                toggleActions: "play none none none"
+            }
+        });
+
+     
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+
+        function openLightbox(e) {
+           
+            document.body.style.overflow = 'hidden';
+
+            const imgSrc = e.target.src;
+            const imgAlt = e.target.alt;
+            
+            lightbox.style.display = 'block';
+            lightboxImg.src = imgSrc;
+            lightboxCaption.innerHTML = imgAlt;
+        }
+
+        function closeLightbox(e) {
+           
+            if (e.target.id === 'lightbox' || e.target.classList.contains('lightbox-close')) {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        }
+
+      
+        document.querySelectorAll('#products img, #testimonials img').forEach(img => {
+            img.addEventListener('click', openLightbox);
+        });
+
+       
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lightbox.style.display === 'block') {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+        
+    </script>
+</body>
+</html>
